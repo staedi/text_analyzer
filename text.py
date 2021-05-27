@@ -60,7 +60,7 @@ if len(sampled_data)>0:
 
         tokenized = [token for token in tokenized if token]
         # tokenized = [token for token in tokenized for stop in stop_tokens if stop not in token]
-        st.write(tokenized)
+        st.write(' '.join(tokenized))
         tagged = nltk.pos_tag(tokenized)
         st.write(pd.DataFrame(tagged))
         st.text(tagged)
