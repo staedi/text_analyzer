@@ -36,19 +36,24 @@ elif sel_ticker != 'None':
     else:
         sampled_data = data.loc[data['symbol']==sel_ticker,'headline'][:sel_number]
 
-# st.markdown(stop_tokens)
+st.markdown(stop_tokens)
 
 if len(sampled_data)>0:
     st.write(sampled_data)
     for sentence in sampled_data:
         # sentence = data.loc[data['symbol']==sel_ticker,'headline']
+        st.write(sentence)
         tokenized = nltk.word_tokenize(sentence)
 
         if sel_simple == 'Yes':
             for token_idx in range(len(tokenized)):
                 if tokenized[token_idx] not in stop_tokens:
                     for punc in punctuation:
+                        if tokenized[token_idx].rfind("'s") == len(tokenized[token_idx])-2:
+                            tokenized[token_idx] = tokenized[token_idx][:tokenized[token_idx].rfind("'s")]
                         if punc != '.':
+                            if punc == "'":
+                                tokenized[token_idx] = tokenized[token_idx].replace(punc,'')
                             tokenized[token_idx] = tokenized[token_idx].replace(punc,'')
 
         tokenized = [token for token in tokenized if token]
