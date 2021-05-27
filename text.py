@@ -62,8 +62,8 @@ if len(sampled_data)>0:
         # tokenized = [token for token in tokenized for stop in stop_tokens if stop not in token]
         st.write(' '.join(tokenized))
         tagged = nltk.pos_tag(tokenized)
-        tagged = tagged.loc[tagged[1]!='MD']
-        st.write(pd.DataFrame(tagged))
+        tagged = [tag for tag in tagged if tag[1] != 'MD']
+        st.write(pd.DataFrame(tagged,columns=['Token','PoS'))
         st.text(tagged)
         entity = nltk.ne_chunk(tagged)
         st.text(entity)
