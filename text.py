@@ -46,15 +46,17 @@ if len(sampled_data)>0:
         tokenized = nltk.word_tokenize(sentence)
 
         if sel_simple == 'Yes':
+            tokenized = [token for token in tokenized if token.lower() not in stop_tokens]
             for token_idx in range(len(tokenized)):
-                if tokenized[token_idx] not in stop_tokens:
-                    for punc in punctuation:
-                        if tokenized[token_idx].rfind("'s") == len(tokenized[token_idx])-2:
-                            tokenized[token_idx] = tokenized[token_idx][:tokenized[token_idx].rfind("'s")]
-                        if punc != '.':
-#                             if punc == "'":
-#                                 tokenized[token_idx] = tokenized[token_idx].replace(punc,'')
-                            tokenized[token_idx] = tokenized[token_idx].replace(punc,' ')
+                for punc in punctuation:
+                    if tokenized[token_idx] == "n't":
+                        tokenized[token_idx] = 'not'
+                    elif tokenized[token_idx][-2:] == "'s":
+                        tokenized[token_idx] = tokenized[token_idx][:-2]
+                    elif punc != '.':
+                        # if punc == "'":
+                        #     tokenized[token_idx] = tokenized[token_idx].replace(punc,'')
+                        tokenized[token_idx] = tokenized[token_idx].replace(punc,' ')
 
         tokenized = [token for token in tokenized if token]
         # tokenized = [token for token in tokenized for stop in stop_tokens if stop not in token]
