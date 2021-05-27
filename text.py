@@ -56,9 +56,9 @@ if len(sampled_data)>0:
                     elif punc != '.':
                         # if punc == "'":
                         #     tokenized[token_idx] = tokenized[token_idx].replace(punc,'')
-                        tokenized[token_idx] = tokenized[token_idx].replace(punc,' ')
+                        tokenized[token_idx] = tokenized[token_idx].replace(punc,' ').strip()
 
-        tokenized = [token for token in tokenized if token.strip()]
+        tokenized = [token for token in tokenized if token]
         # tokenized = [token for token in tokenized for stop in stop_tokens if stop not in token]
         st.write(tokenized)
         tagged = nltk.pos_tag(tokenized)
