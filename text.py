@@ -42,7 +42,7 @@ if len(sampled_data)>0:
     st.write(sampled_data)
     for sentence in sampled_data:
         # sentence = data.loc[data['symbol']==sel_ticker,'headline']
-        st.write(sentence)
+        # st.write(sentence)
         tokenized = nltk.word_tokenize(sentence)
 
         if sel_simple == 'Yes':
