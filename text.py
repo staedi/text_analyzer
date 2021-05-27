@@ -48,7 +48,8 @@ if len(sampled_data)>0:
             for token_idx in range(len(tokenized)):
                 if tokenized[token_idx] not in stop_tokens:
                     for punc in punctuation:
-                        tokenized[token_idx] = tokenized[token_idx].replace(punc,'')
+                        if punc != '.':
+                            tokenized[token_idx] = tokenized[token_idx].replace(punc,'')
 
         tokenized = [token for token in tokenized if token]
         # tokenized = [token for token in tokenized for stop in stop_tokens if stop not in token]
