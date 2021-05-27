@@ -52,9 +52,9 @@ if len(sampled_data)>0:
                         if tokenized[token_idx].rfind("'s") == len(tokenized[token_idx])-2:
                             tokenized[token_idx] = tokenized[token_idx][:tokenized[token_idx].rfind("'s")]
                         if punc != '.':
-                            if punc == "'":
-                                tokenized[token_idx] = tokenized[token_idx].replace(punc,'')
-                            tokenized[token_idx] = tokenized[token_idx].replace(punc,'')
+#                             if punc == "'":
+#                                 tokenized[token_idx] = tokenized[token_idx].replace(punc,'')
+                            tokenized[token_idx] = tokenized[token_idx].replace(punc,' ')
 
         tokenized = [token for token in tokenized if token]
         # tokenized = [token for token in tokenized for stop in stop_tokens if stop not in token]
