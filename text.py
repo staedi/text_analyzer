@@ -36,7 +36,7 @@ elif sel_ticker != 'None':
     else:
         sampled_data = data.loc[data['symbol']==sel_ticker,'headline'][:sel_number]
 
-st.markdown(stop_tokens)
+# st.markdown(stop_tokens)
 
 if len(sampled_data)>0:
     st.write(sampled_data)
