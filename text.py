@@ -11,7 +11,7 @@ nltk.download('maxent_ne_chunker')
 data = pd.read_csv('headlines.csv')
 
 st.header('Sentence analyses')
-st.write('Enter or paste a text to analyze below')
+# st.write('Enter or paste a text to analyze below')
 
 # sentence = st.text_input(' ')
 stop_tokens = nltk.corpus.stopwords.words('english')
@@ -25,6 +25,8 @@ if sel_dataset == 'Predefined':
     st.sidebar.markdown('Choose a ticker to analze (e.g., VZ)')
     sel_ticker = st.sidebar.selectbox('Ticker',['None']+data['symbol'].unique().tolist())
     sel_number = st.sidebar.slider('Number',1,10,5)
+else:
+    st.write('Enter or paste a text to analyze below')
 sampled_data = []
 
 if sel_dataset == 'Manual':
