@@ -43,7 +43,7 @@ elif sel_ticker != 'None':
 if len(sampled_data)>0:
     st.write(sampled_data)
     for sentence in sampled_data:
-        sentence = sentence.replace("’","'")
+        sentence = sentence.replace("’","'").replace("‘","")
         # sentence = data.loc[data['symbol']==sel_ticker,'headline']
         # st.write(sentence)
         tokenized = nltk.word_tokenize(sentence)
