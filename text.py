@@ -53,12 +53,16 @@ if len(sampled_data)>0:
                 st.write(tokenized[token_idx])
                 for punc in punctuation:
                     if ("n't","n’t") in tokenized[token_idx]:
+                        st.write(1)
                         tokenized[token_idx] = 'not'
                     elif tokenized[token_idx][-2:] in ("'s","’s"):
+                        st.write(2)
                         tokenized[token_idx] = tokenized[token_idx][:-2]
                     elif tokenized[token_idx] == punc:
+                        st.write(3)
                         tokenized[token_idx] = ''
                     elif punc != '.':
+                        st.write(4)
                         # if punc == "'":
                         #     tokenized[token_idx] = tokenized[token_idx].replace(punc,'')
                         tokenized[token_idx] = tokenized[token_idx].replace(punc,' ').strip()
