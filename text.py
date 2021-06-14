@@ -51,9 +51,9 @@ if len(sampled_data)>0:
             # tokenized = [token for token in tokenized if token.lower() not in stop_tokens]
             for token_idx in range(len(tokenized)):
                 for punc in punctuation:
-                    if tokenized[token_idx] == "n't":
+                    if tokenized[token_idx] in ("n't","n’t"):
                         tokenized[token_idx] = 'not'
-                    elif tokenized[token_idx][-2:] == "'s":
+                    elif tokenized[token_idx][-2:] in ("'s","’s"):
                         tokenized[token_idx] = tokenized[token_idx][:-2]
                     elif tokenized[token_idx] == punc:
                         tokenized[token_idx] = ''
