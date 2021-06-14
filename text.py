@@ -49,7 +49,7 @@ if len(sampled_data)>0:
         tokenized = nltk.word_tokenize(sentence)
 
         if sel_simple == 'Yes':
-            tokenized = [token for token in tokenized if token.lower() not in stop_tokens]
+           # tokenized = [token for token in tokenized if token.lower() not in stop_tokens]
             for token_idx in range(len(tokenized)):
                 for punc in punctuation:
                     if tokenized[token_idx][-3:] == "n't":
