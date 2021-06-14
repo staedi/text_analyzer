@@ -50,6 +50,7 @@ if len(sampled_data)>0:
         if sel_simple == 'Yes':
             # tokenized = [token for token in tokenized if token.lower() not in stop_tokens]
             for token_idx in range(len(tokenized)):
+                st.write(tokenized[token_idx])
                 for punc in punctuation:
                     if ("n't","n’t") in tokenized[token_idx]:
                         tokenized[token_idx] = 'not'
