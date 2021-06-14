@@ -53,7 +53,7 @@ if len(sampled_data)>0:
                 st.write(tokenized[token_idx])
                 for punc in punctuation:
                     st.write(0,punc)
-                    if ("n't","n’t") in tokenized[token_idx]:
+                    if tokenized[token_idx][-3:] in ("n't","n’t"):
                         st.write(1)
                         tokenized[token_idx] = 'not'
                     elif tokenized[token_idx][-2:] in ("'s","’s"):
