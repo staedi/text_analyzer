@@ -56,8 +56,8 @@ if len(sampled_data)>0:
                         tokenized[token_idx] = 'not'
                     elif tokenized[token_idx][-2:] == "'s":
                         tokenized[token_idx] = tokenized[token_idx][:-2]
-                    elif tokenized[token_idx] == punc:
-                        tokenized[token_idx] = ''
+#                     elif tokenized[token_idx] == punc:
+#                         tokenized[token_idx] = ''
                     elif punc != '.':
                         # if punc == "'":
                         #     tokenized[token_idx] = tokenized[token_idx].replace(punc,'')
